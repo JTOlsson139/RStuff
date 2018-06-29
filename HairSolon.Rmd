@@ -1,0 +1,86 @@
+---
+title: "HairSolon"
+author: "Jerry Olsson"
+date: "June 20, 2018"
+output: html_document
+---
+
+Dataset description
+Dataset: hairsalon.dat
+
+Source: D. H. Dean (2012). "Gender, Ethnic Identity and Patronage Likelihood
+for a Unisex Hair Salon," Young Consumers, Vol. 13, #2, pp. 124-135
+
+Description: Patronage likelihoods among students exposed to an ad for a unisex hair salon by ethnicity and gender. Ratings on scale of 1-9.
+
+Variables/Columns
+Group         8   /* 1=W/M 2=W/F, 3=non-W/M, 4=non-W/F  */
+Ehtnicity    16   /* 1=White,  2=non-White   */
+Gender       24   /* 1=Male, 2=Female   */
+Patronage likelihood     32 (out of 10)
+
+# Group nominal categorical variable four values
+# Ethnicity dichotomous categorical variable
+# Gender dichotomous categorical variable
+# Patronage Likelihood nominal categorical variable nine values
+# Group, Ethnicity, Gender Independent Variables
+# Patronage Likelihood Dependent Variable
+Let's load some data
+```{r}
+salon <- read.table("C:/Users/rolsson/Desktop/SalonData.txt")
+```
+
+Let's load some libraries
+```{r}
+library(ggplot2)
+```
+
+Add Column heders to og data
+```{r}
+names(salon) <- c("Group", "Ethnicity", "Gender", "Patronage Likelihood")
+```
+
+EDA # Exploratory Data Anaylysis
+```{r}
+A <- salon$Ethnicity[salon$Ethnicity == 1]
+length(A)
+B <- salon$Ethnicity[salon$Ethnicity == 2]
+length(B)
+C <- salon$Gender[salon$Gender == 1]
+length(C)
+D <- salon$Gender[salon$Gender == 2]
+length(D)
+E <- salon$Group[salon$Group == 1]
+length(E)
+F <- salon$Group[salon$Group == 2]
+length(2)
+G <- salon$Group[salon$Group == 3]
+length(G)
+H <- salon$Group[salon$Group == 4]
+length(H)
+I <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 1]
+length(I)
+J <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 2]
+length(J)
+K <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 3]
+length(K)
+L <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 4]
+length(L)
+M <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 5]
+length(M)
+N <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 6]
+length(N)
+O <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 7]
+length(O)
+P <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 8]
+length(P)
+Q <- salon$`Patronage Likelihood`[salon$`Patronage Likelihood` == 9]
+length(Q)
+hist(salon$`Patronage Likelihood`)
+```
+
+boxplots
+```{r}
+boxplot(salon, data=salon, varwidth = TRUE)
+```
+

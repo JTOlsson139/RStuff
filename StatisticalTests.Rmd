@@ -1,0 +1,108 @@
+---
+title: "StatisticalTests"
+author: "Francis"
+date: "May 29, 2018"
+output: html_document
+---
+1. One Sample t-Test
+Parametric test tests if the means are the same to a certain confidence level
+```{r}
+set.seed(200)
+x <- rnorm(100, mean = 20, sd = 2)
+t.test(x, mu = 20, conf.level = 0.99)
+```
+Here the p-value is not <0.05, therefore we cannot reject the null hypothesis that the mean=20 can be rejected.
+
+2. Wilcoxon Signed Rank Test
+Non-parametric alternative to t-test. Tests if an estimate is different from true value
+```{r}
+numeric_vector <- c(18, 30, 23, 17, 20, 21, 27, 24, 14, 19)
+wilcox.test(numeric_vector, mu=20, conf.int = TRUE)
+```
+Here we cannot accept the null hypothesis that the true location is not equal to 20.
+
+3. Two sample t_test and Wilcoxon Rank Sum Test
+Compares mean of 2 samples
+```{r}
+x <- c(10,22,33,5,22,21)
+y <- c(11,19,30,7,19,23)
+wilcox.test(x, y, alternative = "g") #greater
+```
+Here since the p-value is >0.05, we cannot reject the null hypothesis
+
+Two Sample t-test.  Come back to later
+```{r}
+t.test(1:10, y = c(2:20))
+```
+1-to-1 comparison of means for values of x and y.  Use paired = T.
+```{r}
+t.test(x,y,paired = T)
+wilcox.test(x,y,paired = T)
+```
+
+4.Shapiro Test
+Tests if sample follows normal distribution
+
+```{r}
+shapiro.test(numeric_vector)
+
+set.seed(100)
+normdist <- rnorm(100, mean = 5, sd=1)
+shapiro.test(normdist)
+```
+If the p-value<0.05, we reject the null hypothesis that the vector is normally distributed.
+
+5. Kolmogorov and Smirnov Test
+Tests whether two samples follow the same distribution. 
+```{r}
+#different distributions
+x <- rnorm(50)
+y <- runif(50)
+ks.test(x,y)
+
+#same distribution
+x <- rnorm(50)
+y <- rnorm(50)
+ks.test(x,y)
+```
+If p<0.05, we reject the null hypothesis that they are from the same distribution.
+
+6. Fisher's F-Test
+Tests if two samples have the same variance
+```{r}
+var.test(x,y)
+```
+
+7. Chi Squared test.  Come back to later
+Can test if two-categorical variables are dependent.
+```{r}
+chisq.test(table(categorical_X, categorical_Y), correct = FALSE)  # Yates continuity correction not applied
+
+#or
+summary(table(categorical_X, categorical_Y)) # performs a chi-squared test.
+```
+If the p-value<0.05 we reject the null hypothesis that x and y are independant.
+We can also use the chi-sq value.
+
+8.  Correlation.
+Tests linear relationship between continuous variables.
+```{r}
+cor.test(x,y)
+cor.test(cars$speed, cars$dist)
+```
+If p<0.05 we reject the null hypothesis that the correlation is 0.
+
+9. More Tests
+```{r}
+fisher.test(contingencyMatrix, alternative = "greater") #tests independence of rows and columns
+friedman.test() #rank sum non-parametric test
+```
+
+Checkout lawstat and outliers package
+
+
+
+
+
+
+
