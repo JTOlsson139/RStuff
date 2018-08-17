@@ -1,0 +1,36 @@
+---
+title: "SalesData"
+author: "Jerome Olsson"
+date: "August 8, 2018"
+output: html_document
+---
+  
+Dataset Description
+Dataset: SalesData.dat
+
+
+```{r}
+SalesData <- data.frame(Date=character(), Customer=character(), Item=character(), Type=character(), Brand=character(), Units=character(), Quantity=integer(), Cost=integer(), Notes=character(), stringsAsFactors = FALSE)
+install.packages("readxl")
+library(readxl)
+library(ggplot2)
+read_excel("GS 1921.xlsx")
+    
+```
+
+NEXT: Exploratory Data Analysis NOTE: Writing "NA" Into Excel Converts <dbl> and <S3: POSIXct> to <chr> 
+PROBLEM: Error in hist(SalesData$Cost): invalid number of 'breaks'
+
+```{r}
+dim(SalesData)
+mode(SalesData)
+class(SalesData)
+nrow(SalesData)
+ncol(SalesData)
+names(SalesData)
+str(SalesData)
+print(SalesData)
+head(SalesData$Cost)
+Bythe_Barlow <- subset.data.frame(SalesData, Customer == "Bythe Barlow", drop = FALSE)
+print(Bythe_Barlow)
+```
