@@ -1,0 +1,29 @@
+---
+title: "Sales"
+author: "Francis"
+date: "August 16, 2018"
+output: html_document
+---
+
+
+Read in data 
+```{r}
+data <- read.table("C:/Users/rolsson/Desktop/GS 1921.txt", header = T)
+head(data)
+tail(data)
+str(data)
+sum(data$Cost)
+IQR(data$Cost)
+median(data$Cost)
+tobacco.Cost <- subset(data$Cost, data$Item == "Tobacco")
+sum(tobacco.Cost)
+IQR(tobacco.Cost)
+median(tobacco.Cost)
+flour.Cost <- subset(data$Cost, data$Item == "Flour")
+sum(flour.Cost)
+IQR(flour.Cost)
+median(flour.Cost)
+tobacco.Price <- subset()
+flour.Price <- subset()
+
+```
