@@ -5,12 +5,33 @@ date: "August 16, 2018"
 output: html_document
 ---
 
+Dataset Description
+Dataset: SalesData.dat
+
+Source: Input from General Store Ledger Year 1921
+
+Description: Each page includes purchases from one customer
+
+Variables/columns
+Date  24
+Item  18          
+Units 11
+Quantity  num
+Cost  int
 
 Read in data 
 ```{r}
 data <- read.table("C:/Users/rolsson/Desktop/GS 1921.txt", header = T)
-head(data)
-tail(data)
+```
+Loading Libraries
+
+```{r}
+library(ggplot2)
+
+```
+
+Exploratory Data Analysis
+```{r}
 str(data)
 sum(data$Cost)
 IQR(data$Cost)
@@ -23,7 +44,18 @@ flour.Cost <- subset(data$Cost, data$Item == "Flour")
 sum(flour.Cost)
 IQR(flour.Cost)
 median(flour.Cost)
-tobacco.Price <- subset()
-flour.Price <- subset()
+tobacco.Price <- subset(data$Cost/data$Quantity, data$Item == "Tobacco")
+sum(tobacco.Price)
+IQR(tobacco.Price)
+median(tobacco.Price)
+flour.Price <- subset(data$Cost/data$Quantity, data$Item == "Flour")
+sum(flour.Price)
+IQR(flour.Price)
+median(flour.Price)
+```
+Graphics
+
+
+```{r}
 
 ```
