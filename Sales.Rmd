@@ -53,9 +53,25 @@ sum(flour.Price)
 IQR(flour.Price)
 median(flour.Price)
 ```
-Graphics
+Histograms
 
 
 ```{r}
+hist(data$Cost)
+hist(flour.Cost, right = TRUE)
+hist(flour.Price, right = TRUE)
+hist(tobacco.Cost, right = TRUE)
+hist(tobacco.Price, right = TRUE)
+
+```
+Boxplots
+
+```{r}
+boxplot(data$Cost)
+boxplot(flour.Cost)
+boxplot(flour.Price)
+boxplot(tobacco.Cost)
+boxplot(tobacco.Price)
+
 
 ```
