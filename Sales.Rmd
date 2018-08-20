@@ -27,11 +27,15 @@ Loading Libraries
 
 ```{r}
 library(ggplot2)
-
+```
+Edit the Data: Convert Price from cents to dollars
+```{r}
+data$Cost <- data$Cost/10
 ```
 
 Exploratory Data Analysis
 ```{r}
+head(data)
 str(data)
 sum(data$Cost)
 IQR(data$Cost)
@@ -55,14 +59,12 @@ median(flour.Price)
 ```
 Histograms
 
-
 ```{r}
 hist(data$Cost)
 hist(flour.Cost, right = TRUE)
 hist(flour.Price, right = TRUE)
 hist(tobacco.Cost, right = TRUE)
 hist(tobacco.Price, right = TRUE)
-
 ```
 Boxplots
 
@@ -72,6 +74,4 @@ boxplot(flour.Cost)
 boxplot(flour.Price)
 boxplot(tobacco.Cost)
 boxplot(tobacco.Price)
-
-
 ```
