@@ -28,6 +28,13 @@ Loading Libraries
 ```{r}
 library(ggplot2)
 ```
+Download packages
+
+
+```{r}
+install.packages("afex")
+
+```
 Edit the Data: Convert Price from cents to dollars
 ```{r}
 data$Cost <- data$Cost/10
