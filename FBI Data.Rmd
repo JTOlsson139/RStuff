@@ -1,0 +1,33 @@
+---
+title: "FBI Data"
+author: "Jerry"
+date: "August 24, 2018"
+output: html_document
+---
+
+Dataset Description:
+
+
+
+Read In Data:
+```{r}
+data <- read.table("C:/Users/rolsson/Desktop/fbitable1.txt", header = T)
+
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+
+
+```{r}
+
+```
+
+
