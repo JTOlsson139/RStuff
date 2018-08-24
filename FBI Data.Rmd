@@ -11,7 +11,9 @@ Dataset Description:
 
 Read In Data:
 ```{r}
-data <- read.table("C:/Users/rolsson/Desktop/fbitable1.txt", header = T)
+data <- read.csv("C:/Users/rolsson/Desktop/fbitable.csv", header = T)
+dim(data)
+head(data)
 
 
 ```
